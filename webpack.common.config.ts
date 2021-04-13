@@ -83,6 +83,8 @@ const config = (isEnvProduction: boolean): webpack.Configuration => {
                 "@Sagas/*": path.resolve(__dirname, "src/Sagas/*"),
                 "@Interfaces": path.resolve(__dirname, "src/Interfaces"),
                 "@Interfaces/*": path.resolve(__dirname, "src/Interfaces/*"),
+                "@Pages": path.resolve(__dirname, "src/Pages"),
+                "@Pages/*": path.resolve(__dirname, "src/Pages/*"),
             },
         },
         plugins: [
