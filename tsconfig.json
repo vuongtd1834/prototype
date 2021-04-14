@@ -20,7 +20,6 @@
       "@Sagas/*": ["src/Sagas/*"],
       "@Interfaces": ["src/Interfaces"],
       "@Interfaces/*": ["src/Interfaces/*"],
-      "@Pages": ["src/Pages"],
       "@Pages/*": ["src/Pages/*"],
     }
   },

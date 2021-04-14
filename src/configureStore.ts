@@ -35,7 +35,12 @@ const configureAppStore = (): EnhancedStore => {
     const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
 
     // Create the store with saga middleware
-    const middleware = [sagaMiddleware, logger];
+    const middleware = [];
+    middleware.push(sagaMiddleware);
+
+    if (process.env.NODE_ENV !== "production") {
+        middleware.push(logger);
+    }
 
     const store = configureStore({
         reducer: persistedReducer,

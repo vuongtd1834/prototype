@@ -3,6 +3,7 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
 import svgToMiniDataURI from "mini-svg-data-uri";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import Dotenv from "dotenv-webpack";
 import path from "path";
 
@@ -76,16 +77,7 @@ const config = (isEnvProduction: boolean): webpack.Configuration => {
         },
         resolve: {
             extensions: [".tsx", ".ts", ".js"],
-            alias: {
-                "@Reducers": path.resolve(__dirname, "src/Reducers"),
-                "@Reducers/*": path.resolve(__dirname, "src/Reducers/*"),
-                "@Sagas": path.resolve(__dirname, "src/Sagas"),
-                "@Sagas/*": path.resolve(__dirname, "src/Sagas/*"),
-                "@Interfaces": path.resolve(__dirname, "src/Interfaces"),
-                "@Interfaces/*": path.resolve(__dirname, "src/Interfaces/*"),
-                "@Pages": path.resolve(__dirname, "src/Pages"),
-                "@Pages/*": path.resolve(__dirname, "src/Pages/*"),
-            },
+            plugins: [new TsconfigPathsPlugin()],
         },
         plugins: [
             new ForkTsCheckerWebpackPlugin({
