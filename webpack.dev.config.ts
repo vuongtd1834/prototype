@@ -1,11 +1,16 @@
 import path from "path";
-import webpack from "webpack";
+import webpack, { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { merge } from "webpack-merge";
 
 import common from "./webpack.common.config";
 
-const config: webpack.Configuration = merge(common(false), {
+interface Configuration extends WebpackConfiguration {
+    devServer?: WebpackDevServerConfiguration;
+}
+
+const config = merge<Configuration>(common(false), {
     mode: "development",
     plugins: [
         new HtmlWebpackPlugin({

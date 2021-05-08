@@ -5,7 +5,6 @@ import svgToMiniDataURI from "mini-svg-data-uri";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import Dotenv from "dotenv-webpack";
-import path from "path";
 
 const config = (isEnvProduction: boolean): webpack.Configuration => {
     const getStyleLoaders = (preProcessor?: string) => {
